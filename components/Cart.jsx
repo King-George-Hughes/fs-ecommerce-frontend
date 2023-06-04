@@ -16,13 +16,13 @@ const Cart = ({ close }) => {
     >
       <motion.div
         animate={{ opacity: 1, x: 0, scale: 1 }}
-        initial={{ opacity: 0, x: 200, scale: 0 }}
-        className="fixed right-0 w-[40%] h-full bg-[#f1f1f1] p-10 md:p-20"
+        initial={{ opacity: 0, x: 500, scale: 0 }}
+        className="fixed right-0 w-[80%] h-full bg-[#f1f1f1] p-10 md:w-[40%] md:p-20"
         onClick={(e) => e.stopPropagation()}
       >
         {cartItems.length < 1 && (
           <div className="w-full h-full flex flex-col items-center justify-center">
-            <h1 className="text-lg font-bold mb-10">
+            <h1 className="text-md md:text-lg font-bold mb-10">
               You have more shopping to do 🛒😊
             </h1>
             <FaShoppingCart size={150} color="#444" />
@@ -31,21 +31,21 @@ const Cart = ({ close }) => {
         {cartItems.length >= 1 &&
           cartItems.map((item) => {
             return (
-              <div className="w-full h-[150px] bg-white rounded-md p-5 my-4 flex items-start justify-between">
+              <div className="w-full h-[100px] md:h-[150px] bg-white rounded-md p-5 my-4 flex items-start justify-between">
                 <img
                   src={item.image.data.attributes.formats.small.url}
                   alt=""
-                  className="w-[150px] h-[100px] object-cover"
+                  className="w-[90px] md:w-[120px] h-[60px] md:h-[100px] object-cover"
                 />
                 <div className="w-full h-full flex flex-col justify-center items-center">
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                  <h3>{item.price}</h3>
-                  <span className="mr-4">Quantity</span>
-                  <div className="flex items-center justify-center my-2">
+                  <h3 className="text-sm md:text-lg font-bold">{item.title}</h3>
+                  <h3 className="text-sm md:text-md">{item.price}</h3>
+                  <span className="text-sm md:text-md mr-4">Quantity</span>
+                  <div className="flex items-center justify-center my-0 md:my-2">
                     <button>
                       <AiFillMinusCircle size={20} />
                     </button>
-                    <span className="mx-3">0</span>
+                    <span className="mx-1 md:mx-3">0</span>
                     <button>
                       <AiFillPlusCircle size={20} />
                     </button>
