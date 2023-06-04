@@ -4,6 +4,7 @@ import "./globals.css";
 import { Provider } from "urql";
 import { Client, cacheExchange, fetchExchange } from "@urql/core";
 import { Navbar } from "@/components";
+import { StateContext } from "@/lib/context";
 
 const client = new Client({
   // url: "http://localhost:1337/graphql",
@@ -19,12 +20,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Provider value={client}>
-        <body>
-          <Navbar />
-          {children}
-        </body>
-      </Provider>
+      <body>
+        <StateContext>
+          <Provider value={client}>
+            <Navbar />
+            {children}
+          </Provider>
+        </StateContext>
+      </body>
     </html>
   );
 }
