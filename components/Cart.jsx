@@ -40,8 +40,8 @@ const Cart = ({ close }) => {
                 <div className="w-full h-full flex flex-col justify-center items-center">
                   <h3 className="text-sm md:text-lg font-bold">{item.title}</h3>
                   <h3 className="text-sm md:text-md">{item.price}</h3>
-                  <span className="text-sm md:text-md mr-4">Quantity</span>
                   <div className="flex items-center justify-center my-0 md:my-2">
+                    <span className="text-sm md:text-md mr-4">Quantity</span>
                     <button>
                       <AiFillMinusCircle size={20} />
                     </button>
