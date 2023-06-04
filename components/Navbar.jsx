@@ -8,6 +8,8 @@ const Navbar = () => {
   //   const [showCart, setShowCart] = useStateContext();
   const [showTheCart, setShowTheCart] = useState(false);
 
+  const closeShowThatCart = () => setShowTheCart(false);
+
   return (
     <nav className="fixed w-full h-[60px] bg-white z-10">
       <div className="container mx-auto max-w-[1200px] h-full px-5 py-3 flex items-center justify-between">
@@ -24,7 +26,7 @@ const Navbar = () => {
         </div>
 
         {/* {showCart && <Cart />} */}
-        {showTheCart && <Cart />}
+        {showTheCart && <Cart close={closeShowThatCart} />}
       </div>
     </nav>
   );

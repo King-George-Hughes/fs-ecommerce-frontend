@@ -1,13 +1,25 @@
 import { useStateContext } from "@/lib/context";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import { motion } from "framer-motion";
 
-const Cart = () => {
+const Cart = ({ close }) => {
   const { cartItems, setShowCart } = useStateContext();
 
   return (
-    <div className="fixed w-full h-full left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.8)]">
-      <div className="fixed right-0 w-[40%] h-full bg-[#f1f1f1] p-10 md:p-20">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className="fixed w-full h-full left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.8)]"
+      onClick={close}
+    >
+      <motion.div
+        animate={{ opacity: 1, x: 0, scale: 1 }}
+        initial={{ opacity: 0, x: 200, scale: 0 }}
+        className="fixed right-0 w-[40%] h-full bg-[#f1f1f1] p-10 md:p-20"
+        onClick={(e) => e.stopPropagation()}
+      >
         {cartItems.length < 1 && (
           <div className="w-full h-full flex flex-col items-center justify-center">
             <h1 className="text-lg font-bold mb-10">
@@ -42,8 +54,8 @@ const Cart = () => {
               </div>
             );
           })}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
