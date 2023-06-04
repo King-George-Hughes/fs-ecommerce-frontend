@@ -8,7 +8,7 @@ const Products = ({ slug, title, price, image }) => {
 
   return (
     <div className="w-full md:w-[250px] p-3 bg-white rounded-md">
-      <div className="relative w-full h-[250px]">
+      <div className="relative w-full h-[200px]">
         <img
           src={imgUrl}
           alt={title}

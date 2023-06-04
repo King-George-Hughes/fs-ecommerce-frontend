@@ -27,7 +27,7 @@ const ProductDetails = ({ params }) => {
     <main className="bg-gray-200 flex min-h-screen flex-col items-center justify-between p-24">
       {/* <h1 className="text-4xl font-bold mb-10">Online Shopping</h1> */}
 
-      <div className="container">
+      <div className="container max-w-[1200px] mx-auto">
         <div className="w-full flex items-center justify-center flex-col gap-10 md:gap-40 md:flex-row">
           <div className="w-full md:w-[500px]">
             <img
@@ -57,13 +57,13 @@ const ProductDetails = ({ params }) => {
       {fullPicture && (
         <div className="">
           <div
-            className="fixed w-full h-full left-0 right-0 bottom-0 bg-gradient-to-br from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0.9)] backdrop-blur-md"
+            className="fixed w-full h-full left-0 right-0 bottom-0 bg-gradient-to-br from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0.9)] backdrop-blur-md z-20"
             onClick={() => setFullPicture((prevState) => (prevState = false))}
           ></div>
           <img
             src={imgUrl}
             alt={title}
-            className="fixed h-[90%] w-fit top-[5%] bottom-[5%] left-1/2 right-1/2 transform -translate-x-1/2 z-10"
+            className="fixed h-[90%] w-fit top-[5%] bottom-[5%] left-1/2 right-1/2 transform -translate-x-1/2 z-30"
           />
         </div>
       )}

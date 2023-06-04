@@ -3,6 +3,7 @@
 import "./globals.css";
 import { Provider } from "urql";
 import { Client, cacheExchange, fetchExchange } from "@urql/core";
+import { Navbar } from "@/components";
 
 const client = new Client({
   // url: "http://localhost:1337/graphql",
@@ -19,7 +20,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Provider value={client}>
-        <body>{children}</body>
+        <body>
+          <Navbar />
+          {children}
+        </body>
       </Provider>
     </html>
   );

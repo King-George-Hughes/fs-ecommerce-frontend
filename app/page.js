@@ -19,7 +19,7 @@ export default function Home() {
     <main className="bg-gray-200 flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-4xl font-bold mb-10">Online Shopping</h1>
 
-      <div className="w-full flex items-center justify-start flex-col gap-5 md:flex-row md:flex-wrap">
+      <div className="container mx-auto w-full max-w-[1200px] flex items-center justify-start flex-col gap-5 md:flex-row md:flex-wrap">
         {products.map((product) => {
           return (
             <Products key={product.attributes.slug} {...product.attributes} />
