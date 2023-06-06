@@ -28,6 +28,7 @@ const Cart = ({ close }) => {
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
             className="w-full h-full flex flex-col items-center justify-center"
           >
             <h1 className="text-md md:text-lg font-bold mb-10">
