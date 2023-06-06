@@ -3,7 +3,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Cart } from ".";
 import { useStateContext } from "@/lib/context";
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Navbar = () => {
   const { sumTotalQuantity } = useStateContext();
@@ -25,9 +25,13 @@ const Navbar = () => {
           onClick={() => setShowTheCart(true)}
         >
           {sumTotalQuantity > 0 && (
-            <div className="w-[15px] h-[15px] bg-pink-600 rounded-full flex items-center justify-center text-[10px] text-white p-1 absolute -right-1 -top-2">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              className="w-[15px] h-[15px] bg-pink-600 rounded-full flex items-center justify-center text-[10px] text-white p-1 absolute -right-1 -top-2"
+            >
               {sumTotalQuantity}
-            </div>
+            </motion.div>
           )}
           <FiShoppingBag />
           <span>Cart</span>

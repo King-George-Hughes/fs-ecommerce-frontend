@@ -41,6 +41,7 @@ const Cart = ({ close }) => {
           </motion.div>
         )}
         <motion.div
+          layout
           variants={cartVariantParent}
           initial="hidden"
           animate="show"
@@ -49,6 +50,7 @@ const Cart = ({ close }) => {
             cartItems.map((item) => {
               return (
                 <motion.div
+                  layout
                   variants={cartVariant}
                   // initial="hidden"
                   // animate="show"
