@@ -12,6 +12,7 @@ const Cart = ({ close }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       className="fixed w-full h-full left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.8)]"
       onClick={close}
@@ -19,6 +20,7 @@ const Cart = ({ close }) => {
       <motion.div
         animate={{ opacity: 1, x: "0%", scale: 1 }}
         initial={{ opacity: 0, x: "100%", scale: 0 }}
+        exit={{ x: "100%" }}
         // transition={{ type: "tween" }}
         // transition={{ type: "spring" }}
         className="fixed right-0 w-[80%] h-full bg-[#f1f1f1] p-10 md:w-[40%] md:p-20 overflow-auto"

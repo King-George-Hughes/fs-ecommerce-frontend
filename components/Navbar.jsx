@@ -3,6 +3,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Cart } from ".";
 import { useStateContext } from "@/lib/context";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const { sumTotalQuantity } = useStateContext();
@@ -33,7 +34,9 @@ const Navbar = () => {
         </div>
 
         {/* {showCart && <Cart />} */}
-        {showTheCart && <Cart close={closeShowThatCart} />}
+        <AnimatePresence>
+          {showTheCart && <Cart close={closeShowThatCart} />}
+        </AnimatePresence>
       </div>
     </nav>
   );
