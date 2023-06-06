@@ -40,7 +40,10 @@ const Cart = ({ close }) => {
         {cartItems.length >= 1 &&
           cartItems.map((item) => {
             return (
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
                 className="w-full h-[100px] md:h-[150px] bg-white rounded-md p-5 my-4 flex items-start justify-between"
                 key={item.slug}
               >
@@ -63,18 +66,22 @@ const Cart = ({ close }) => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         {cartItems.length >= 1 && (
-          <div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+          >
             <h3 className="font-medium text-lg mt-8">
               Subtotal: <span className="text-green-600">${totalPrice}</span>
             </h3>
             <button className="w-full bg-black text-white font-medium p-2 mt-5 rounded-sm">
               Purchase
             </button>
-          </div>
+          </motion.div>
         )}
       </motion.div>
     </motion.div>
