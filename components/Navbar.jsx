@@ -5,10 +5,12 @@ import { useStateContext } from "@/lib/context";
 import { useState } from "react";
 
 const Navbar = () => {
-  //   const [showCart, setShowCart] = useStateContext();
+  const { sumTotalQuantity } = useStateContext();
   const [showTheCart, setShowTheCart] = useState(false);
 
   const closeShowThatCart = () => setShowTheCart(false);
+
+  console.log(sumTotalQuantity);
 
   return (
     <nav className="fixed w-full h-[60px] bg-white z-10">
@@ -21,6 +23,7 @@ const Navbar = () => {
           className="flex flex-col items-center font-medium cursor-pointer"
           onClick={() => setShowTheCart(true)}
         >
+          {sumTotalQuantity > 0 && <span>{sumTotalQuantity}</span>}
           <FiShoppingBag />
           <span>Cart</span>
         </div>

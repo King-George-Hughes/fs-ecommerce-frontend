@@ -4,7 +4,9 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const Cart = ({ close }) => {
-  const { cartItems, setShowCart } = useStateContext();
+  const { cartItems, setShowCart, onAdd, onRemove } = useStateContext();
+
+  console.log(cartItems);
 
   return (
     <motion.div
@@ -31,7 +33,10 @@ const Cart = ({ close }) => {
         {cartItems.length >= 1 &&
           cartItems.map((item) => {
             return (
-              <div className="w-full h-[100px] md:h-[150px] bg-white rounded-md p-5 my-4 flex items-start justify-between">
+              <div
+                className="w-full h-[100px] md:h-[150px] bg-white rounded-md p-5 my-4 flex items-start justify-between"
+                key={item.slug}
+              >
                 <img
                   src={item.image.data.attributes.formats.small.url}
                   alt=""
@@ -39,14 +44,14 @@ const Cart = ({ close }) => {
                 />
                 <div className="w-full h-full flex flex-col justify-center items-center">
                   <h3 className="text-sm md:text-lg font-bold">{item.title}</h3>
-                  <h3 className="text-sm md:text-md">{item.price}</h3>
+                  <h3 className="text-sm md:text-md">${item.price}</h3>
                   <div className="flex items-center justify-center my-0 md:my-2">
                     <span className="text-sm md:text-md mr-4">Quantity</span>
-                    <button>
+                    <button onClick={() => onRemove(item)}>
                       <AiFillMinusCircle size={20} />
                     </button>
-                    <span className="mx-1 md:mx-3">0</span>
-                    <button>
+                    <span className="mx-1 md:mx-3">{item.totalQuantity}</span>
+                    <button onClick={() => onAdd(item, 1)}>
                       <AiFillPlusCircle size={20} />
                     </button>
                   </div>
