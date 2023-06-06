@@ -25,12 +25,16 @@ const Cart = ({ close }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {cartItems.length < 1 && (
-          <div className="w-full h-full flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-full h-full flex flex-col items-center justify-center"
+          >
             <h1 className="text-md md:text-lg font-bold mb-10">
               You have more shopping to do 🛒😊
             </h1>
             <FaShoppingCart size={150} color="#444" />
-          </div>
+          </motion.div>
         )}
         {cartItems.length >= 1 &&
           cartItems.map((item) => {
