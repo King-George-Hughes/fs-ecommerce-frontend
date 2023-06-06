@@ -4,7 +4,7 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const Cart = ({ close }) => {
-  const { cartItems, setShowCart, onAdd, onRemove } = useStateContext();
+  const { cartItems, onAdd, onRemove, totalPrice } = useStateContext();
 
   console.log(cartItems);
 
@@ -17,9 +17,11 @@ const Cart = ({ close }) => {
       onClick={close}
     >
       <motion.div
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        initial={{ opacity: 0, x: 500, scale: 0 }}
-        className="fixed right-0 w-[80%] h-full bg-[#f1f1f1] p-10 md:w-[40%] md:p-20"
+        animate={{ opacity: 1, x: "0%", scale: 1 }}
+        initial={{ opacity: 0, x: "100%", scale: 0 }}
+        // transition={{ type: "tween" }}
+        // transition={{ type: "spring" }}
+        className="fixed right-0 w-[80%] h-full bg-[#f1f1f1] p-10 md:w-[40%] md:p-20 overflow-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {cartItems.length < 1 && (
@@ -59,6 +61,16 @@ const Cart = ({ close }) => {
               </div>
             );
           })}
+        {cartItems.length >= 1 && (
+          <div>
+            <h3 className="font-medium text-lg mt-8">
+              Subtotal: <span className="text-green-600">${totalPrice}</span>
+            </h3>
+            <button className="w-full bg-black text-white font-medium p-2 mt-5 rounded-sm">
+              Purchase
+            </button>
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );

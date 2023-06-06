@@ -20,10 +20,14 @@ const Navbar = () => {
         </Link>
 
         <div
-          className="flex flex-col items-center font-medium cursor-pointer"
+          className="flex flex-col items-center font-medium cursor-pointer relative"
           onClick={() => setShowTheCart(true)}
         >
-          {sumTotalQuantity > 0 && <span>{sumTotalQuantity}</span>}
+          {sumTotalQuantity > 0 && (
+            <div className="w-[15px] h-[15px] bg-pink-600 rounded-full flex items-center justify-center text-[10px] text-white p-1 absolute -right-1 -top-2">
+              {sumTotalQuantity}
+            </div>
+          )}
           <FiShoppingBag />
           <span>Cart</span>
         </div>

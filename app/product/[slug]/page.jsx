@@ -4,6 +4,7 @@ import { useQuery } from "urql";
 import { GET_PRODUCT_DETAIL_QUERY } from "@/lib/query";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 import { useStateContext } from "@/lib/context";
 
@@ -76,7 +77,7 @@ const ProductDetails = ({ params }) => {
           <img
             src={imgUrl}
             alt={title}
-            className="fixed h-[90%] w-fit top-[5%] bottom-[5%] left-1/2 right-1/2 transform -translate-x-1/2 z-30"
+            className="fixed w-[90%] h-fit top-[5%] bottom-[5%] left-1/2 right-1/2 transform -translate-x-1/2 z-30"
           />
         </div>
       )}
